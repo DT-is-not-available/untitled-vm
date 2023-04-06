@@ -72,7 +72,7 @@ REG.y = -25
 local instructions = {}
 
 function love.load()
-    local pattern = "%s-([%w_]+)%s-([%uamxy_]*)%s-(:?)%s-(-?)([%u%damxy_]*)%s-([;\n])"
+    local pattern = "%s-([%w_]+)%s-([%uamxy_]*)%s-(:?)%s-(-?)([%u%damxy_]*)%s-([;])"
     local comment = "#.-\n"
 
     local file = love.filesystem.read("main.zasm")
@@ -98,7 +98,7 @@ function love.load()
         variables[name] = uint_16(#instructions)
     end
 
-    for op, reg, swap, negative, arg, lineEnder in file:gmatch(pattern) do
+    for op, reg, swap, negative, arg, block, lineEnder in file:gmatch(pattern) do
         local isNegative = negative == "-"
 
         if swap == "" then
@@ -150,8 +150,6 @@ function love.load()
     print(#instructions)
 end
 
-local pt_limit = 1000
-
 local index = 1
 
 function OP.add(reg, val)
@@ -173,6 +171,8 @@ end
 OP["break"] = function()
     return true
 end
+
+local pt_limit = 1000
 
 function love.update()
     for i = 1, pt_limit, 1 do
