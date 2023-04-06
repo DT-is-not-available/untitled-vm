@@ -1,0 +1,4 @@
+LABEL LOOP;
+add m: 1;
+break;
+goto: LOOP;
