@@ -1,0 +1,23 @@
+DEFINE VALUE: 12;
+DEFINE SOMETHING_ELSE: 34;
+
+# this is a comment
+
+instruction a: 123;
+instruction x: VALUE;
+instruction m;
+instruction: SOMETHING_ELSE;
+
+LABEL TEST;
+
+DEFINE VAR: {
+    set a: VAR_INDEX;
+    set m: $2;
+    DEFINE g$1: VAR_INDEX;
+    DEFINE +gVAR_INDEX: 1;
+}
+
+VAR FOO: 3;
+VAR BAR: 6;
+VAR BAZ: 9;
+VAR RESULT;
