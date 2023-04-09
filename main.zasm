@@ -1,33 +1,33 @@
 DEFINE VAR_INDEX: 0;
 # this is a comment
 DEFINE VAR: {
-    set a: VAR_INDEX;
-    set m: $2;
+	set a: VAR_INDEX;
+	set m: $2;
 
-    DEFINE g$1: VAR_INDEX;
+	DEFINE g$1: VAR_INDEX;
 
-    DEFINE +gVAR_INDEX: 1;
+	DEFINE +gVAR_INDEX: 1;
 }
 
 # this is another comment
 
 DEFINE OP_V: { 
-    set a: $3;
-    set x: m;
-    set a: $2;
-    $1 m: x;
+	set a: $3;
+	set x: m;
+	set a: $2;
+	$1 m: x;
 }
 
 DEFINE OP_R: {
-    set a: $2;
-    $1 m: $3;
+	set a: $2;
+	$1 m: $3;
 }
 
 DEFINE FUNCTION: {
-    jmp: RETURN;
-    LABEL $1;
-    $2;
-    LABEL RETURN;
+	jmp: RETURN;
+	LABEL $1;
+	$2;
+	LABEL RETURN;
 }
 
 VAR FOO: 3;
@@ -47,5 +47,5 @@ OP_R(add, HELLOWORLD, 20);
 LABEL ABC;
 
 LABEL TEST;
-    OP_R(add, RESULT, 12);
-    jmp: TEST;
+	OP_R(add, RESULT, 12);
+	jmp: TEST;

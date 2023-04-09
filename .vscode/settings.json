@@ -1,182 +1,76 @@
 {
-    "Lua.runtime.version": "LuaJIT",
-    "Lua.runtime.special": {
-        "love.filesystem.load": "loadfile"
-    },
-    "Lua.workspace.library": [
-        "${3rd}/love2d/library"
-    ],
-    "highlight.decorations": { "rangeBehavior": 3 }, // Default decorations from which all others inherit from
-    "highlight.regexFlags": "gm", // Default flags used when building the regexes
-    "highlight.regexes": {
-        "(#.*)|(^[^\\S\\n]*DEFINE)|(^[^\\S\\n]*LABEL)|^([^\\S\\n]*[A-Z_]+)|^([^\\S\\n]*[a-z_]+)|([amxyg][a-z_]+)|([amxy])|(g)|([A-Z_]+)|([a-z_]+)|(\\$\\d+)|(-?\\d+)|([g\\-\\+:;,()])|([{}])": { // A regex will be created from this string, don't forget to double escape it
-            "filterFileRegex": ".*\\.zasm", // Apply only if the current file's path matches this regex. Requires double escaping
-            "decorations": [ // Decoration options to apply to the capturing groups
-                { // comment
-                    "opacity": "0.5",
-                },
-                { // DEFINE
-                    "color": "#37f",
-                    "overviewRulerColor": "#37f",
-                },
-                { // LABEL
-                    "color": "#d7f",
-                    "overviewRulerColor": "#d7f",
-                },
-                { // macro
-                    "color": "#ffa",
-                },
-                { // instruction
-                    "color": "#acf",
-                },
-                { // floating instruction
-                    "color": "#acf",
-                },
-                { // register
-                    "color": "#f7f",
-                },
-                { // g
-                    "color": "#fa7",
-                    "opacity": "0.75"
-                },
-                { // defined name
-                    "color": "#fa7",
-                },
-                { // floating instruction
-                    "color": "#acf",
-                },
-                { // insert
-                    "color": "#f33",
-                    "fontWeight": "bold",
-                },
-                { // number
-                    "color": "#afc",
-                },
-                { // operator
-                    "color": "#fff",
-                },
-                { // braces
-                    "color": "#ff0",
-                },
-            ]
-        },
-        "((?:\\/\\/|\\-\\-)\\s*!.*)": { // A regex will be created from this string, don't forget to double escape it
-            "decorations": [ // Decoration options to apply to the capturing groups
-                { // bug inner
-                    "color": "white",
-                    "backgroundColor": "red",
-                    "borderRadius": "100px",
-                },
-            ]
-        },
-        "((?:\\/\\/|\\-\\-)[^\\S\\n]*)(wip:)([^\\S\\n]*)([^\\S\\n][^;\\n]+)(.*)": { // A regex will be created from this string, don't forget to double escape it
-            "decorations": [ // Decoration options to apply to the capturing groups
-                {
-                    "opacity": "0.5"
-                },
-                {
-                    "color": "white",
-                },
-                {},
-                { // bug inner
-                    "color": "white",
-                    "border": "1px solid #fc0",
-                    "backgroundColor": "#fc03",
-                    "borderRadius": "100px",
-                },
-                {
-                    "opacity": "0.5"
-                },
-                {}
-            ]
-        },
-        "((?:\\/\\/|\\-\\-)[^\\S\\n]*)(todo:)([^\\S\\n]*)([^\\S\\n].*)": { // A regex will be created from this string, don't forget to double escape it
-            "decorations": [ // Decoration options to apply to the capturing groups
-                {
-                    "opacity": "0.5"
-                },
-                {
-                    "color": "white",
-                },
-                {},
-                { // bug inner
-                    "color": "white",
-                    "border": "1px solid #0f0",
-                    "backgroundColor": "#0f03",
-                    "borderRadius": "100px",
-                },
-            ]
-        },
-        "((?:\\/\\/|\\-\\-)[^\\S\\n]*)(planned:)([^\\S\\n]*)([^\\S\\n].*)": { // A regex will be created from this string, don't forget to double escape it
-            "decorations": [ // Decoration options to apply to the capturing groups
-                {
-                    "opacity": "0.5"
-                },
-                {
-                    "color": "white",
-                },
-                {},
-                { // bug inner
-                    "color": "white",
-                    "border": "1px solid #0af",
-                    "backgroundColor": "#0af3",
-                    "borderRadius": "100px",
-                },
-            ]
-        },
-        "((?:\\/\\/|\\-\\-)[^\\S\\n]*)(stashed:)([^\\S\\n]*)([^\\S\\n].*)": { // A regex will be created from this string, don't forget to double escape it
-            "decorations": [ // Decoration options to apply to the capturing groups
-                {
-                    "opacity": "0.5"
-                },
-                {
-                    "color": "white",
-                },
-                {},
-                { // bug inner
-                    "color": "white",
-                    "border": "1px solid #f00",
-                    "backgroundColor": "#f003",
-                    "borderRadius": "100px",
-                },
-            ]
-        },
-        "((?:\\/\\/|\\-\\-)[^\\S\\n]*)(fix:)([^\\S\\n]*)([^\\S\\n].*)": { // A regex will be created from this string, don't forget to double escape it
-            "decorations": [ // Decoration options to apply to the capturing groups
-                {
-                    "opacity": "0.5"
-                },
-                {
-                    "color": "white",
-                },
-                {},
-                { // bug inner
-                    "color": "white",
-                    "border": "1px dashed white",
-                    "backgroundColor": "#f00",
-                    "borderRadius": "100px",
-                    "fontWeight": "bold"
-                },
-            ]
-        },
-        "((?:\\/\\/|\\-\\-)[^\\S\\n]*)(done:)([^\\S\\n]*)([^\\S\\n].*)": { // A regex will be created from this string, don't forget to double escape it
-            "decorations": [ // Decoration options to apply to the capturing groups
-                {
-                    "opacity": "0.5"
-                },
-                {
-                    "color": "white",
-                },
-                {},
-                { // bug inner
-                    "color": "white",
-                    "border": "1px solid #b3f",
-                    "backgroundColor": "#b3f3",
-                    "borderRadius": "100px",
-                },
-            ]
-        },
-    },
-    "highlight.minDelay": 50, // Minimum number of milliseconds to wait before highlighting the document after a change, used for throttling
-    "highlight.maxMatches": 250 // Maximum number of matches to decorate per regex, in order not to crash the app with accidental cathastropic regexes
+	"Lua.runtime.version": "LuaJIT",
+	"Lua.runtime.special": {
+		"love.filesystem.load": "loadfile"
+	},
+	"Lua.workspace.library": [
+		"${3rd}/love2d/library"
+	],
+	"highlight.decorations": { "rangeBehavior": 3 }, // Default decorations from which all others inherit from
+	"highlight.regexFlags": "gm", // Default flags used when building the regexes
+	"highlight.regexes": {
+		"(#.*)|(^[^\\S\\n]*DEFINE)|(^[^\\S\\n]*LABEL)|^([^\\S\\n]*[A-Z_]+)|^([^\\S\\n]*[a-z_]+)|([amxyg][a-z_]+)|([amxy])|(g)|([A-Z_]+)|([a-z_]+)|(\\$\\d+)|(-?\\d+)|([g\\-\\+:;,()])|([{}])": { // A regex will be created from this string, don't forget to double escape it
+			"filterFileRegex": ".*\\.zasm", // Apply only if the current file's path matches this regex. Requires double escaping
+			"decorations": [ // Decoration options to apply to the capturing groups
+				{ // comment
+					"opacity": "0.5",
+				},
+				{ // DEFINE
+					"color": "#37f",
+					"overviewRulerColor": "#37f",
+				},
+				{ // LABEL
+					"color": "#d7f",
+					"overviewRulerColor": "#d7f",
+				},
+				{ // macro
+					"color": "#ffa",
+				},
+				{ // instruction
+					"color": "#acf",
+				},
+				{ // floating instruction
+					"color": "#acf",
+				},
+				{ // register
+					"color": "#f7f",
+				},
+				{ // g
+					"color": "#fa7",
+					"opacity": "0.75"
+				},
+				{ // defined name
+					"color": "#fa7",
+				},
+				{ // floating instruction
+					"color": "#acf",
+				},
+				{ // insert
+					"color": "#f33",
+					"fontWeight": "bold",
+				},
+				{ // number
+					"color": "#afc",
+				},
+				{ // operator
+					"color": "#fff",
+				},
+				{ // braces
+					"color": "#ff0",
+				},
+			]
+		},
+		"(DEFINE[^\\S\\n]*)([A-Z_]+)": {
+			"filterFileRegex": ".*\\.zasm",
+			"decorations": [
+				{},
+				{
+					"hoverMessage": "Defines a new constant named '$2'",
+					"backgroundColor": "blue"
+				}
+			]
+		}
+	},
+	"highlight.minDelay": 50, // Minimum number of milliseconds to wait before highlighting the document after a change, used for throttling
+	"highlight.maxMatches": 250 // Maximum number of matches to decorate per regex, in order not to crash the app with accidental cathastropic regexes
 }
