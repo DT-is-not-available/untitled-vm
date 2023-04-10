@@ -60,16 +60,6 @@
 				},
 			]
 		},
-		"(DEFINE[^\\S\\n]*)([A-Z_]+)": {
-			"filterFileRegex": ".*\\.zasm",
-			"decorations": [
-				{},
-				{
-					"hoverMessage": "Defines a new constant named '$2'",
-					"backgroundColor": "blue"
-				}
-			]
-		}
 	},
 	"highlight.minDelay": 50, // Minimum number of milliseconds to wait before highlighting the document after a change, used for throttling
 	"highlight.maxMatches": 250 // Maximum number of matches to decorate per regex, in order not to crash the app with accidental cathastropic regexes
