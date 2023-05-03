@@ -53,9 +53,7 @@ This defines a constant under the specified value. The name can later be used in
 ## `DEFINE CONSTANT: {BLOCK};`
 This defines a macro that resolves to the specified block input. This block input may contain anywhere within it a `$n` replacer. It will be replaced by the `n`th argument passed to the macro. The `DEFINE` must occur before any usage of the constant.
 ## `LABEL CONSTANT;`
-This defines a constant with the value matching the position in the code the label is at. The `LABEL` can occur anywhere in a file, so long as the parser is able to locate a label declaration beforehand. (TODO, CURRENTLY DOES NOT HAPPEN)
+This defines a constant with the value matching the position in the code the label is at. The `LABEL` can occur anywhere in a file, so long as the parser is able to locate a label declaration beforehand. 
 # Proposals
-## `LABEL` fix
-Currently you cannot jump to a label ahead of the goto statement. This fix would make the parser look through the document ahead of time for labels and take note of which ones occur, reserves those names from `DEFINE` and applies the values after parsing.
 ## Constant indexing (`CONSTANT<OFFSET>`)
 Adds notation for inserting a value adjacent to the provided constant. For example: `SOMETHING<3>` or `SCREEN<64>`
